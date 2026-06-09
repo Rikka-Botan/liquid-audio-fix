@@ -148,7 +148,7 @@ class LFM2AudioProcessor:
             assert isinstance(detok_config.layer_types, list)
             detok_config.layer_types = [rename_layer(layer) for layer in detok_config.layer_types]  # type: ignore[arg-type]
 
-            detok = LFM2AudioDetokenizer(detok_config).eval().cuda()
+            detok = LFM2AudioDetokenizer(detok_config).eval()
 
             detok_weights_path = Path(self.detokenizer_path) / "model.safetensors"
             from safetensors.torch import load_file
